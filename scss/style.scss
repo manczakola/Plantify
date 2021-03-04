@@ -22,27 +22,27 @@ nav {
     }
 
     .navbar-brand {
-        content: url('/images/logo.svg');
+        content: url('/images/logo.png');
     }
 
     #navbarNav>ul>li:nth-child(1)>a::before {
-        content: url('/images/user.svg');
+        content: url('/images/user.png');
         margin-right: 1rem;
     }
 
     #navbarNav>ul>li:nth-child(2)>a::before {
-        content: url('/images/flower.svg');
+        content: url('/images/flower.png');
         margin-right: .5rem;
 
     }
 
     #navbarNav>ul>li:nth-child(3)>a::before {
-        content: url('/images/search.svg');
+        content: url('/images/search.png');
         margin-right: 1rem;
     }
 
     #navbarNav>ul>li:nth-child(4)>a::before {
-        content: url('/images/log-out.svg');
+        content: url('/images/log-out.png');
         margin-right: 1rem;
     }
 
@@ -57,7 +57,7 @@ nav {
 
         &-icon {
             color: rgba(255, 255, 255, 0.890) !important;
-            background-image: url('/images/hamburgerMenu.svg');
+            background-image: url('/images/hamburgerMenu.png');
         }
     }
 
@@ -69,7 +69,7 @@ nav {
 // Logo
 
 .logoBig {
-    content: url('/images/plantify.svg');
+    content: url('/images/plantify.png');
     display: flex;
     justify-content: center;
     align-items: center;
@@ -93,7 +93,7 @@ nav {
         }
 
         &::before {
-            content: url("/images/uploadButton.svg");
+            content: url("/images/uploadButton.png");
             display: flex;
             justify-content: center;
             align-items: center;
@@ -116,7 +116,7 @@ nav {
     #identify {
         border: none;
         background-color: transparent;
-        content: url("/images/identify.svg");
+        content: url("/images/identify.png");
         display: flex;
         justify-content: center;
         align-items: center;
