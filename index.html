@@ -21,23 +21,38 @@
   <!-- Nav start -->
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#"></a>
+      <a class="navbar-brand" href="#">
+        <img src="images/logo.svg" onerror="this.onerror=null; this.src='images/logo.png'"> Plantify
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon">
+          <img src="images/hamburgerMenu.svg" onerror="this.onerror=null; this.src='images/hamburgerMenu.png'">
+        </span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">My account</a>
+            <a class="nav-link" aria-current="page" href="#"> 
+              <img src="images/user.svg" onerror="this.onerror=null; this.src='images/user.png'">
+              My account
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">My plant collection</a>
+            <a class="nav-link" href="#">
+              <img src="images/flower.svg" onerror="this.onerror=null; this.src='images/flower.png'">
+              My plant collection
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Recently searched</a>
+            <a class="nav-link" href="#">
+              <img src="images/search.svg" onerror="this.onerror=null; this.src='images/search.png'">
+              Recently searched
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Log out</a>
+            <a class="nav-link" href="#"> <img src="images/log-out.svg" onerror="this.onerror=null; this.src='images/log-out.png'">
+              Log out
+            </a>
           </li>
         </ul>
       </div>
@@ -45,7 +60,7 @@
   </nav>
 
   <div class="logoBig">
-
+    <img src="images/plantify.png" onerror="this.onerror=null; this.src='images/plantify.png'">
   </div>
 
   <!-- Nav end -->
@@ -54,18 +69,34 @@
   <!-- Upload section start -->
 
   <form class='form'>
-   <button id='identify' type="button"></button>
-    <input id='upload' type="file" multiple />
+    <div class="identyfiDiv">
+   <button id='identify' type="button">
+    <img src="images/identify.svg" onerror="this.onerror=null; this.src='images/identify.png'">
+   </button>
+</div>
+
+<div class="uploadPhotoDiv">
+    <input id='upload' type="file" multiple /> 
+    <img src="images/uploadButton.svg" onerror="this.onerror=null; this.src='images/uploadButton.png'">
+</div>
+
+<div class="takePhotoDiv">
+    <button id='buttonTakePhoto' type="button" data-open="camera-modal" class="buttonTakePhoto">
+      <img src="images/takePhoto.svg" onerror="this.onerror=null; this.src='images/takePhoto.png'">
+     </button>
+</div>
   </form>
 
 
-  <div class="uploadDiv">
+  <div class="uploadDiv"> 
+   
     <label for="fileUpload" class="button">
+  
     </label>
+  
     </div>
     
-    <button type="button" data-open="camera-modal" class="buttonTakePhoto">
-    </button>
+    
      
     
 

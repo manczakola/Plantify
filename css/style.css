@@ -2,7 +2,6 @@
 body {
   background-color: white;
   font-family: "Economica", sans-serif;
-  width: 100vw;
   margin: 0;
 }
 
@@ -14,30 +13,30 @@ nav {
 
 nav a {
   color: rgba(255, 255, 255, 0.89) !important;
+  font-size: 1.1rem;
+}
+
+nav .nav-link {
+  border-left: 1px solid rgba(255, 255, 255, 0.507);
+  border-bottom: none;
+  margin-right: 1rem;
+}
+
+nav .nav-link img {
+  margin: 0 1rem;
+  width: 27px;
 }
 
 nav .navbar-brand {
-  content: url("/images/logo.png");
+  font-size: 1.7rem;
+  letter-spacing: 1px;
 }
 
-nav #navbarNav > ul > li:nth-child(1) > a::before {
-  content: url("/images/user.png");
-  margin-right: 1rem;
-}
-
-nav #navbarNav > ul > li:nth-child(2) > a::before {
-  content: url("/images/flower.png");
-  margin-right: .5rem;
-}
-
-nav #navbarNav > ul > li:nth-child(3) > a::before {
-  content: url("/images/search.png");
-  margin-right: 1rem;
-}
-
-nav #navbarNav > ul > li:nth-child(4) > a::before {
-  content: url("/images/log-out.png");
-  margin-right: 1rem;
+@media (min-width: 992px) {
+  nav .navbar-nav {
+    position: absolute;
+    right: 0;
+  }
 }
 
 nav .navbar-toggler:focus {
@@ -47,13 +46,7 @@ nav .navbar-toggler:focus {
           box-shadow: none !important;
 }
 
-nav .navbar-toggler-icon {
-  color: rgba(255, 255, 255, 0.89) !important;
-  background-image: url("/images/hamburgerMenu.png");
-}
-
 .logoBig {
-  content: url("/images/plantify.png");
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -63,10 +56,11 @@ nav .navbar-toggler-icon {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-top: 7vh;
 }
 
 .form {
-  margin: 20vh 0;
+  margin: 5vh 0;
   display: -webkit-box !important;
   display: -ms-flexbox !important;
   display: flex !important;
@@ -74,52 +68,14 @@ nav .navbar-toggler-icon {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.form #upload {
-  padding: 1rem;
-}
-
-.form #upload::-webkit-file-upload-button {
-  visibility: hidden;
-}
-
-.form #upload::before {
-  content: url("/images/uploadButton.png");
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 1rem;
-  outline: none;
-  -webkit-transition: all .2s ease-in-out;
-  transition: all .2s ease-in-out;
-  cursor: pointer;
-}
-
-.form #upload:hover::before {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
-}
-
-.form #upload:focus {
-  outline: none !important;
 }
 
 .form #identify {
   border: none;
   background-color: transparent;
-  content: url("/images/identify.png");
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -129,7 +85,7 @@ nav .navbar-toggler-icon {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 1rem;
+  margin: 2.5rem 0;
   outline: none;
   -webkit-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
@@ -142,6 +98,73 @@ nav .navbar-toggler-icon {
 }
 
 .form #identify:hover:focus {
+  outline: none !important;
+}
+
+.form .uploadPhotoDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  margin: 2rem 0;
+  outline: none;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+.form .uploadPhotoDiv:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.form .uploadPhotoDiv #upload {
+  visibility: hidden;
+}
+
+.form .uploadPhotoDiv #upload::-webkit-file-upload-button {
+  visibility: hidden;
+  display: none;
+}
+
+.form .uploadPhotoDiv #upload:focus {
+  outline: none !important;
+}
+
+.form #buttonTakePhoto {
+  border: none;
+  background-color: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 1rem;
+  outline: none;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  cursor: pointer;
+}
+
+.form #buttonTakePhoto:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.form #buttonTakePhoto:hover:focus {
   outline: none !important;
 }
 

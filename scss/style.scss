@@ -5,7 +5,6 @@
 body {
     background-color: rgb(255, 255, 255);
     font-family: $font;
-    width: 100vw;
     margin: 0;
 }
 
@@ -13,37 +12,39 @@ body {
 
 nav {
     background-color: $nav-color;
-    color: rgba(255, 255, 255, 0.890) !important;
-    font-family:$font;
+    color: $white !important;
+    font-family: $font;
 
     a {
-        color: rgba(255, 255, 255, 0.890) !important;
+        color: $white !important;
+        font-size: 1.1rem;
+    }
 
+    .nav-link {
+        border-left: 1px solid $border-white;
+        border-bottom: none;
+        margin-right: 1rem;
+
+        img {
+            margin: 0 1rem;
+            width: 27px;
+        }
     }
 
     .navbar-brand {
-        content: url('/images/logo.png');
-    }
-
-    #navbarNav>ul>li:nth-child(1)>a::before {
-        content: url('/images/user.png');
-        margin-right: 1rem;
-    }
-
-    #navbarNav>ul>li:nth-child(2)>a::before {
-        content: url('/images/flower.png');
-        margin-right: .5rem;
+        font-size: 1.7rem;
+        letter-spacing: 1px;
 
     }
 
-    #navbarNav>ul>li:nth-child(3)>a::before {
-        content: url('/images/search.png');
-        margin-right: 1rem;
-    }
+    @media (min-width: 992px) {
+        .navbar-nav {
+            position: absolute;
+            right: 0;
+        }
 
-    #navbarNav>ul>li:nth-child(4)>a::before {
-        content: url('/images/log-out.png');
-        margin-right: 1rem;
+
+
     }
 
 
@@ -55,68 +56,90 @@ nav {
             box-shadow: none !important;
         }
 
-        &-icon {
-            color: rgba(255, 255, 255, 0.890) !important;
-            background-image: url('/images/hamburgerMenu.png');
-        }
     }
-
-
-
 }
+
 
 
 // Logo
 
 .logoBig {
-    content: url('/images/plantify.png');
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 7vh;
 }
 
 
 
 // Form 
+
 .form {
-    margin: 20vh 0;
+    margin: 5vh 0;
     display: flex !important;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
 
-    #upload {
-        padding: 1rem;
-
-        &::-webkit-file-upload-button {
-            visibility: hidden;
-        }
-
-        &::before {
-            content: url("/images/uploadButton.png");
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 1rem;
-            outline: none;
-            transition: all .2s ease-in-out;
-            cursor: pointer;
-        }
-
-        &:hover::before {
-            transform: scale(1.1);
-        }
-
-        &:focus {
-            outline: none !important;
-        }
-    }
-
-
+    // identifyDiv
     #identify {
         border: none;
         background-color: transparent;
-        content: url("/images/identify.png");
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 2.5rem 0;
+        outline: none;
+        transition: all .2s ease-in-out;
+        cursor: pointer;
+
+
+
+        &:hover {
+            transform: scale(1.1);
+
+            &:focus {
+                outline: none !important;
+            }
+        }
+    }
+
+    // uploadDiv
+
+
+    .uploadPhotoDiv {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        margin: 2rem 0;
+        outline: none;
+        transition: all .2s ease-in-out;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        #upload {
+
+            visibility: hidden;
+
+            &::-webkit-file-upload-button {
+                visibility: hidden;
+                display: none;
+            }
+
+            &:focus {
+                outline: none !important;
+            }
+        }
+    }
+
+    // takePhotoDiv
+
+    #buttonTakePhoto {
+        border: none;
+        background-color: transparent;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -134,7 +157,13 @@ nav {
             }
         }
     }
+
+
+
 }
+
+
+
 
 // Result section
 
