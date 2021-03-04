@@ -1,2 +1,4 @@
 # Plantify
-https://manczakola.github.io/Plantify/
+https://manczakola.github.io/Plantify/index.html
+
+
