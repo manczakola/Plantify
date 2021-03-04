@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Economica:ital@1&display=swap');
+@import './variables';
+
+
+body {
+    background-color: rgb(255, 255, 255);
+    font-family: $font;
+    width: 100vw;
+    margin: 0;
+}
+
+// Nav
+
+nav {
+    background-color: $nav-color;
+    color: rgba(255, 255, 255, 0.890) !important;
+    font-family:$font;
+
+    a {
+        color: rgba(255, 255, 255, 0.890) !important;
+
+    }
+
+    .navbar-brand {
+        content: url('/images/logo.svg');
+    }
+
+    #navbarNav>ul>li:nth-child(1)>a::before {
+        content: url('/images/user.svg');
+        margin-right: 1rem;
+    }
+
+    #navbarNav>ul>li:nth-child(2)>a::before {
+        content: url('/images/flower.svg');
+        margin-right: .5rem;
+
+    }
+
+    #navbarNav>ul>li:nth-child(3)>a::before {
+        content: url('/images/search.svg');
+        margin-right: 1rem;
+    }
+
+    #navbarNav>ul>li:nth-child(4)>a::before {
+        content: url('/images/log-out.svg');
+        margin-right: 1rem;
+    }
+
+
+    .navbar-toggler {
+
+        &:focus {
+            border: none !important;
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+        &-icon {
+            color: rgba(255, 255, 255, 0.890) !important;
+            background-image: url('/images/hamburgerMenu.svg');
+        }
+    }
+
+
+
+}
+
+
+// Logo
+
+.logoBig {
+    content: url('/images/plantify.svg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+// Form 
+.form {
+    margin: 20vh 0;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    #upload {
+        padding: 1rem;
+
+        &::-webkit-file-upload-button {
+            visibility: hidden;
+        }
+
+        &::before {
+            content: url("/images/uploadButton.svg");
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 1rem;
+            outline: none;
+            transition: all .2s ease-in-out;
+            cursor: pointer;
+        }
+
+        &:hover::before {
+            transform: scale(1.1);
+        }
+
+        &:focus {
+            outline: none !important;
+        }
+    }
+
+
+    #identify {
+        border: none;
+        background-color: transparent;
+        content: url("/images/identify.svg");
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 1rem;
+        outline: none;
+        transition: all .2s ease-in-out;
+        cursor: pointer;
+
+
+        &:hover {
+            transform: scale(1.1);
+
+            &:focus {
+                outline: none !important;
+            }
+        }
+    }
+}
+
+// Result section
+
+
+.recognizedPlantImg {
+    display: flex;
+    width: 350px;
+    padding: 1rem;
+    margin: 2rem 0;
+    margin: 2rem auto;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px 0px grey;
+
+}
+
+.resultsOfUploadPhoto {
+    display: flex;
+    flex-direction: column;
+
+    .resultDiv {
+        border: 1px solid grey;
+        margin: 1rem;
+        padding: 1rem;
+    }
+}

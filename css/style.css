@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Economica:ital@1&display=swap");
+body {
+  background-color: white;
+  font-family: "Economica", sans-serif;
+  width: 100vw;
+  margin: 0;
+}
+
+nav {
+  background-color: rgba(234, 143, 61, 0.37);
+  color: rgba(255, 255, 255, 0.89) !important;
+  font-family: "Economica", sans-serif;
+}
+
+nav a {
+  color: rgba(255, 255, 255, 0.89) !important;
+}
+
+nav .navbar-brand {
+  content: url("/images/logo.svg");
+}
+
+nav #navbarNav > ul > li:nth-child(1) > a::before {
+  content: url("/images/user.svg");
+  margin-right: 1rem;
+}
+
+nav #navbarNav > ul > li:nth-child(2) > a::before {
+  content: url("/images/flower.svg");
+  margin-right: .5rem;
+}
+
+nav #navbarNav > ul > li:nth-child(3) > a::before {
+  content: url("/images/search.svg");
+  margin-right: 1rem;
+}
+
+nav #navbarNav > ul > li:nth-child(4) > a::before {
+  content: url("/images/log-out.svg");
+  margin-right: 1rem;
+}
+
+nav .navbar-toggler:focus {
+  border: none !important;
+  outline: none !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+nav .navbar-toggler-icon {
+  color: rgba(255, 255, 255, 0.89) !important;
+  background-image: url("/images/hamburgerMenu.svg");
+}
+
+.logoBig {
+  content: url("/images/plantify.svg");
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.form {
+  margin: 20vh 0;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.form #upload {
+  padding: 1rem;
+}
+
+.form #upload::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.form #upload::before {
+  content: url("/images/uploadButton.svg");
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 1rem;
+  outline: none;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  cursor: pointer;
+}
+
+.form #upload:hover::before {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.form #upload:focus {
+  outline: none !important;
+}
+
+.form #identify {
+  border: none;
+  background-color: transparent;
+  content: url("/images/identify.svg");
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 1rem;
+  outline: none;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  cursor: pointer;
+}
+
+.form #identify:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.form #identify:hover:focus {
+  outline: none !important;
+}
+
+.recognizedPlantImg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 350px;
+  padding: 1rem;
+  margin: 2rem 0;
+  margin: 2rem auto;
+  border-radius: 10px;
+  -webkit-box-shadow: 2px 2px 8px 0px grey;
+          box-shadow: 2px 2px 8px 0px grey;
+}
+
+.resultsOfUploadPhoto {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.resultsOfUploadPhoto .resultDiv {
+  border: 1px solid grey;
+  margin: 1rem;
+  padding: 1rem;
+}
+/*# sourceMappingURL=style.css.map */
