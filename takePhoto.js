@@ -3,10 +3,9 @@
 document.querySelector('.takePhotoDiv').addEventListener('click', () => {
     console.log(video);
 
-    videoDiv.style.visibility === 'hidden' ? videoDiv.style.visibility = 'visible' : startVideo()
+    videoDiv.style.visibility === 'hidden' ? videoDiv.style.visibility = 'visible' : startVideo();
 
     function startVideo() {
-
 
         navigator.mediaDevices.getUserMedia({
             video: true
@@ -18,7 +17,6 @@ document.querySelector('.takePhotoDiv').addEventListener('click', () => {
         form.style.height = '0';
         form.style.visibility = 'hidden';
     }
-
 
 
     startVideo();

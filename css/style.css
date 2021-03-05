@@ -257,7 +257,6 @@ nav .navbar-toggler:focus {
 .videoDiv {
   position: absolute;
   width: 100vw;
-  height: 100vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
