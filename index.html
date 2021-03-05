@@ -76,8 +76,10 @@
 </div>
 
 <div class="uploadPhotoDiv">
-    <input id='upload' type="file" multiple /> 
-    <img src="images/uploadButton.svg" onerror="this.onerror=null; this.src='images/uploadButton.png'">
+  <div class="file btn btn-lg btn">
+    Upload photo <i class="far fa-image"></i>
+    <input id='upload' type="file" name="file"/>
+  </div>
 </div>
 
 <div class="takePhotoDiv">
@@ -97,16 +99,15 @@
     </div>
     
     
-     
-    
-
+     <div class="videoDiv">
+       
     <video id="video" autoplay=""  class="video" width="200" height="851" style="transform: scaleX(1); position: static;">Video stream not available</video>
-
-     
       <img id="screenshot-img" src="">
- 
       <button id="screenshot-button">Take screenshot</button>
  
+     </div>
+    
+
     
   <!-- Upload section end -->
 <script src='uploadPhoto.js' type="module"></script>

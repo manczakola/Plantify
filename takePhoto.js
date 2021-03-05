@@ -1,37 +1,39 @@
-
-import { sendIdentification } from './uploadPhoto.js';
+import {
+    sendIdentification
+} from './uploadPhoto.js';
 
 //Take photo
+const video = document.querySelector("video");
 
-document.querySelector('.buttonTakePhoto').addEventListener('click', () => {
+export const takePhoto = () => {
+
+    console.log('ok');
     const constraints = {
         video: true,
-      };
-      
-      const video = document.querySelector("video");
-      
-      navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
-          video.srcObject = stream;
-          
+    };
 
-       
-      });
-})
+    navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
+        video.srcObject = stream;
+
+    });
 
 
-const screenshotButton = document.querySelector("#screenshot-button");
-const img = document.querySelector("#screenshot-img");
-const video = document.querySelector("#video");
 
-const canvas = document.createElement("canvas");
-    
+    const screenshotButton = document.querySelector("#screenshot-button");
+    const img = document.querySelector("#screenshot-img");
+    const video = document.querySelector("#video");
 
-//Take screenshots
+    const canvas = document.createElement("canvas");
 
-screenshotButton.addEventListener('click', () => {
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
-    canvas.getContext("2d").drawImage(video, 0, 0);
-    img.src = canvas.toDataURL("image/jpeg");
 
-});
+    //Take screenshots
+
+    screenshotButton.addEventListener('click', () => {
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        canvas.getContext("2d").drawImage(video, 0, 0);
+        img.src = canvas.toDataURL("image/jpeg");
+        console.log(img.src);
+
+    });
+}
