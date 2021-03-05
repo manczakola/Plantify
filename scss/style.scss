@@ -93,7 +93,8 @@ nav {
     align-items: center;
 
     // identifyDiv
-    #identify {
+    #identify,
+    #screenshotButton {
         border: none;
         background-color: transparent;
         display: flex;
@@ -235,4 +236,32 @@ nav {
         display: flex;
         flex-direction: column;
     }
+}
+
+
+// videoDiv
+
+
+.videoDiv {
+    position: absolute;
+    width: 100vw;
+    height: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#screenshotButton {
+    border: none;
+    background-color: transparent;
+
+    margin: 2.5rem 0;
+    outline: none;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+}
+
+#screenshot-img {
+    width: 80vw;
 }

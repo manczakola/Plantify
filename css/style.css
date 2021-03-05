@@ -89,7 +89,8 @@ nav .navbar-toggler:focus {
           align-items: center;
 }
 
-.form #identify {
+.form #identify,
+.form #screenshotButton {
   border: none;
   background-color: transparent;
   display: -webkit-box;
@@ -108,12 +109,14 @@ nav .navbar-toggler:focus {
   cursor: pointer;
 }
 
-.form #identify:hover {
+.form #identify:hover,
+.form #screenshotButton:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
 
-.form #identify:hover:focus {
+.form #identify:hover:focus,
+.form #screenshotButton:hover:focus {
   outline: none !important;
 }
 
@@ -249,5 +252,38 @@ nav .navbar-toggler:focus {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.videoDiv {
+  position: absolute;
+  width: 100vw;
+  height: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#screenshotButton {
+  border: none;
+  background-color: transparent;
+  margin: 2.5rem 0;
+  outline: none;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  cursor: pointer;
+}
+
+#screenshot-img {
+  width: 80vw;
 }
 /*# sourceMappingURL=style.css.map */

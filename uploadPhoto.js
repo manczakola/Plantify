@@ -1,6 +1,3 @@
-import {
-    takePhoto
-} from './takePhoto.js';
 
 let recognizedImage = new Object();
 
@@ -90,8 +87,7 @@ let recognizedImage = new Object();
 
 
 
-
-export const sendIdentification = () => {
+const sendIdentification = () => {
     const files = [...document.querySelector('#upload').files];
     const promises = files.map((file) => {
         return new Promise((resolve, reject) => {
@@ -109,6 +105,10 @@ export const sendIdentification = () => {
         .then(response => response.json())
         .then(data => {
             console.log(data);
+
+            Headers: {
+                CORS: 'no-cors'
+            }
             //create object with recognized plant
 
             recognizedImage = {
@@ -256,4 +256,3 @@ const getPlantObject = (obj) => {
 
 
 document.querySelector('#identify').addEventListener('click', sendIdentification);
-document.querySelector('.takePhotoDiv').addEventListener('click', takePhoto)

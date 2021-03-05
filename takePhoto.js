@@ -1,39 +1,52 @@
-import {
-    sendIdentification
-} from './uploadPhoto.js';
-
 //Take photo
-const video = document.querySelector("video");
 
-export const takePhoto = () => {
+document.querySelector('.takePhotoDiv').addEventListener('click', () => {
+    console.log(video);
 
-    console.log('ok');
-    const constraints = {
-        video: true,
-    };
+    videoDiv.style.visibility === 'hidden' ? videoDiv.style.visibility = 'visible' : startVideo()
 
-    navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
-        video.srcObject = stream;
-
-    });
+    function startVideo() {
 
 
+        navigator.mediaDevices.getUserMedia({
+            video: true
+        }).then(
+            stream => (video.srcObject = stream),
+            err => console.log(err)
+        );
 
-    const screenshotButton = document.querySelector("#screenshot-button");
-    const img = document.querySelector("#screenshot-img");
-    const video = document.querySelector("#video");
-
-    const canvas = document.createElement("canvas");
+        form.style.height = '0';
+        form.style.visibility = 'hidden';
+    }
 
 
-    //Take screenshots
 
-    screenshotButton.addEventListener('click', () => {
-        canvas.width = video.videoWidth;
-        canvas.height = video.videoHeight;
-        canvas.getContext("2d").drawImage(video, 0, 0);
-        img.src = canvas.toDataURL("image/jpeg");
-        console.log(img.src);
+    startVideo();
+})
 
-    });
-}
+const form = document.querySelector('.form');
+const screenshotButton = document.querySelector("#screenshotButton");
+const img = document.querySelector("#screenshot-img");
+const video = document.querySelector("#video");
+const videoDiv = document.querySelector(".videoDiv");
+
+const canvas = document.createElement("canvas");
+
+
+//Take screenshots
+
+screenshotButton.addEventListener('click', () => {
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    canvas.getContext("2d").drawImage(video, 0, 0);
+    img.src = canvas.toDataURL("image/jpeg");
+
+    video.style.visibility = 'hidden';
+    video.style.height = '0';
+    screenshotButton.innerHTML = `
+    <img src="images/identify.svg" onerror="this.onerror=null; this.src='images/identify.png'">
+   `
+    sendIdentification();
+
+    videoDiv.style.visibility = 'hidden';
+});
