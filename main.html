@@ -1,0 +1,12 @@
+<script>
+    window.onload = function() {
+       var name = window.localStorage.getItem('username');
+    
+       if (name != "undefined" || name != "null") {
+       document.getElementById('welcomeMessage').innerHTML = "Hello " + name + "!";
+       } else
+       document.getElementById('welcomeMessage').innerHTML = "Hello!";
+    }
+   </script>
+
+   <span id="welcomeMessage"></span>

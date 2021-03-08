@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/account.css">
     <link rel="stylesheet"href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
     
 <link href="https://fonts.googleapis.com/css2?family=Economica:ital@1&display=swap" rel="stylesheet">
@@ -21,7 +22,7 @@
   <!-- Nav start -->
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="">
         <img src="images/logo.svg" onerror="this.onerror=null; this.src='images/logo.png'"> Plantify
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,25 +33,25 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#"> 
+            <a class="nav-link" aria-current="page" href="#myaccount"> 
               <img src="images/user.svg" onerror="this.onerror=null; this.src='images/user.png'">
-              My account
+              My account  <span id="welcomeMessage"></span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="#myplantcollection">
               <img src="images/flower.svg" onerror="this.onerror=null; this.src='images/flower.png'">
               My plant collection
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="#recentlysearched">
               <img src="images/search.svg" onerror="this.onerror=null; this.src='images/search.png'">
               Recently searched
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"> <img src="images/log-out.svg" onerror="this.onerror=null; this.src='images/log-out.png'">
+            <a class="nav-link" href="#logout"> <img src="images/log-out.svg" onerror="this.onerror=null; this.src='images/log-out.png'">
               Log out
             </a>
           </li>
@@ -59,14 +60,17 @@
     </div>
   </nav>
 
-  <div class="logoBig">
-    <img src="images/plantify.png" onerror="this.onerror=null; this.src='images/plantify.png'">
-  </div>
+
 
   <!-- Nav end -->
 
 
   <!-- Upload section start -->
+<div class="main" >
+
+  <div class="logoBig">
+    <img src="images/plantify.png" onerror="this.onerror=null; this.src='images/plantify.png'">
+  </div>
 
   <form class='form'>
     <div class="identyfiDiv">
@@ -99,7 +103,7 @@
     </div>
     
     
-     <div class="videoDiv">
+     <div class="videoDiv"style='visibility:hidden' >
        
     <video id="video" autoplay="" class="video" width="100%" height="300" style="transform: scaleX(1); position: static;"></video>
       <img id="screenshot-img" src="">
@@ -109,11 +113,14 @@
  
      </div>
     
-
+</div>
     
   <!-- Upload section end -->
 <script src='uploadPhoto.js'></script>
 <script src='takePhoto.js'></script>
+<script src='media.js'></script>
+<script src='links.js'></script>
+<script src='myaccount.js' ></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
 </body>

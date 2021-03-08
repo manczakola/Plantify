@@ -1,10 +1,20 @@
+
+const form = document.querySelector('.form');
+const screenshotButton = document.querySelector("#screenshotButton");
+const img = document.querySelector("#screenshot-img");
+const video = document.querySelector("#video");
+const videoDiv = document.querySelector(".videoDiv");
+
+const canvas = document.createElement("canvas");
+
+
 //Take photo
 
 document.querySelector('.takePhotoDiv').addEventListener('click', () => {
     console.log(video);
 
     videoDiv.style.visibility === 'hidden' ? videoDiv.style.visibility = 'visible' : startVideo();
-
+    screenshotButton.style.visibility = 'visible';
     function startVideo() {
 
         navigator.mediaDevices.getUserMedia({
@@ -22,14 +32,6 @@ document.querySelector('.takePhotoDiv').addEventListener('click', () => {
     startVideo();
 })
 
-const form = document.querySelector('.form');
-const screenshotButton = document.querySelector("#screenshotButton");
-const img = document.querySelector("#screenshot-img");
-const video = document.querySelector("#video");
-const videoDiv = document.querySelector(".videoDiv");
-
-const canvas = document.createElement("canvas");
-
 
 //Take screenshots
 
@@ -43,8 +45,11 @@ screenshotButton.addEventListener('click', () => {
     video.style.height = '0';
     screenshotButton.innerHTML = `
     <img src="images/identify.svg" onerror="this.onerror=null; this.src='images/identify.png'">
-   `
+   `;
+    
     sendIdentification();
 
     videoDiv.style.visibility = 'hidden';
+
+
 });

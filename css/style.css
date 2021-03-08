@@ -7,12 +7,12 @@ body {
 
 nav {
   background-color: rgba(234, 143, 61, 0.37);
-  color: white !important;
+  color: #fff !important;
   font-family: "Economica", sans-serif;
 }
 
 nav a {
-  color: white !important;
+  color: #fff !important;
   font-size: 1.1rem;
 }
 
@@ -181,7 +181,6 @@ nav .navbar-toggler:focus {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 1rem;
   outline: none;
   -webkit-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;

@@ -1,4 +1,3 @@
-
 let recognizedImage = new Object();
 
 // export const sendIdentification = () => {
@@ -86,10 +85,28 @@ let recognizedImage = new Object();
 // for test
 
 
+const files = [...document.querySelector('#upload').files];
+const file = document.querySelector('.uploadPhotoDiv');
+const inputFilesElement = document.getElementById("upload");
+
+
+function handleFiles() {
+    const fileList = this.files;
+    // console.log(fileList);
+    // console.log(fileList[0].name);
+    const okBtn = document.createElement('span');
+    file.appendChild(okBtn);
+    okBtn.innerHTML = '<i style="color: green; font-size: 1rem; margin:0" class="far fa-check-circle"></i>';
+    file.style.border = 'solid 1px green'
+}
+
+
+
 
 const sendIdentification = () => {
-    const files = [...document.querySelector('#upload').files];
+
     const promises = files.map((file) => {
+
         return new Promise((resolve, reject) => {
             const reader = new FileReader();
             reader.onload = (event) => {
@@ -98,6 +115,7 @@ const sendIdentification = () => {
                 resolve(res);
             }
             reader.readAsDataURL(file)
+
         })
     })
 
@@ -109,6 +127,8 @@ const sendIdentification = () => {
             Headers: {
                 CORS: 'no-cors'
             }
+
+
             //create object with recognized plant
 
             recognizedImage = {
@@ -150,7 +170,8 @@ const sendIdentification = () => {
 // function displaying search results
 
 const getPlantObject = (obj) => {
-
+    document.querySelector('#screenshotButton').style.visibility = 'hidden';
+    
     const uploadDiv = document.querySelector('.uploadDiv');
 
     const plantMainDiv = document.createElement('div');
@@ -243,12 +264,11 @@ const getPlantObject = (obj) => {
     }
 
 
+
     arrowDiv.addEventListener('click', () => {
-        form.style.visibility = 'visible';
-        plantMainDiv.style.display = 'none';
-        resultsOfUploadPhoto.style.display = 'none';
-        arrowDiv.style.display = 'none';
-    })
+        console.log('ok', location);
+        window.location.reload();
+    });
 
 
 
@@ -256,3 +276,4 @@ const getPlantObject = (obj) => {
 
 
 document.querySelector('#identify').addEventListener('click', sendIdentification);
+inputFilesElement.addEventListener("change", handleFiles, false);
