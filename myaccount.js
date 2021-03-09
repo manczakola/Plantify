@@ -9,37 +9,59 @@ myAccount = () => {
 
 }
 
-
-if (location.search != '') {
-    console.log(location.search);
-}
-
-
 validateForm = () => {
     const un = document.loginform.username.value;
     const pw = document.loginform.password.value;
-    const username = "username";
-    const password = "password";
-    window.localStorage.setItem('username', username);
-    console.log(un, username, pw, password);
-    if ((un == username) && (pw == password)) {
 
-        return true;
-    } else {
-        alert("Login was unsuccessful, please check your username and password");
-        return false;
-    }
+    // to use in future, with users databases!
+
+    // const username = "username";
+    // const password = "password";
+
+    window.localStorage.setItem('username', un);
+    // if ((un == username) && (pw == password)) {
+
+    //     return true;
+    // } else {
+    //     alert("Login was unsuccessful, please check your username and password");
+    //     return false;
+    // }
 
 }
+const myAccountLink = document.querySelector('#navbarNav > ul >.myaccount');
 
 function hello() {
-    var name = window.localStorage.getItem('username');
+    const name = window.localStorage.getItem('username');
 
-    if (name != "undefined" || name != "null") {
-        document.getElementById('welcomeMessage').innerHTML = "Hello " + name + "!";
-    } else
-        document.getElementById('welcomeMessage').innerHTML = "Hello!";
+
+    if (typeof name == "string") {
+        myAccountLink.innerHTML = `  
+        <a class="nav-link" aria-current="page" href="#myaccount" > 
+        <img src="images/user.svg" onerror="this.onerror=null; this.src='images/user.png'">
+        ${name} </a>
+    `
+    } else {
+        myAccountLink.innerHTML = ` <a class="nav-link" aria-current="page" href="#myaccount" > 
+        <img src="images/user.svg" onerror="this.onerror=null; this.src='images/user.png'">
+        My account
+      </a>`
+
+    }
+
+
 }
 
 
-window.addEventListener('load', hello)
+window.addEventListener('load', hello);
+
+document.querySelector('.logout').addEventListener('click', () => {
+    window.localStorage.removeItem('username');
+
+    myAccountLink.innerHTML = ` <a class="nav-link" aria-current="page" href="#myaccount" > 
+        <img src="images/user.svg" onerror="this.onerror=null; this.src='images/user.png'">
+        My account
+      </a>`;
+
+
+
+})
