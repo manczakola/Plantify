@@ -1,7 +1,7 @@
 const webcamElement = document.getElementById('video');
 const canvasElement = document.getElementById('canvas');
 
-const webcam = new Webcam(webcamElement, 'user', canvasElement);
+const webcam = new Webcam(webcamElement, 'environment', canvasElement);
 
 document.querySelector('#buttonTakePhoto').addEventListener('click', () => {
     webcam.start()
