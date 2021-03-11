@@ -210,7 +210,8 @@ nav {
     font-family: $font;
     font-size: 2rem;
     text-align: center;
-    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid grey;
 }
 
 .resultsOfUploadPhoto {
@@ -228,7 +229,7 @@ nav {
     }
 
     .resultDiv {
-        // border: 1px solid grey;
+
         padding: 2rem 1rem;
         justify-content: center;
         align-items: center;
@@ -248,12 +249,16 @@ nav {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
+    #video {
+        width: 100vw !important;
+        margin-top: 20vh;
+    }
 }
 
 #screenshotButton {
     border: none;
     background-color: transparent;
-
     margin: 2.5rem 0;
     outline: none;
     transition: all .2s ease-in-out;
@@ -263,3 +268,4 @@ nav {
 #screenshot-img {
     width: 80vw;
 }
+

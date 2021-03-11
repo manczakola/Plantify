@@ -1,4 +1,3 @@
-
 const form = document.querySelector('.form');
 const screenshotButton = document.querySelector("#screenshotButton");
 const img = document.querySelector("#screenshot-img");
@@ -15,6 +14,7 @@ document.querySelector('.takePhotoDiv').addEventListener('click', () => {
 
     videoDiv.style.visibility === 'hidden' ? videoDiv.style.visibility = 'visible' : startVideo();
     screenshotButton.style.visibility = 'visible';
+
     function startVideo() {
 
         navigator.mediaDevices.getUserMedia({
@@ -46,7 +46,7 @@ screenshotButton.addEventListener('click', () => {
     screenshotButton.innerHTML = `
     <img src="images/identify.svg" onerror="this.onerror=null; this.src='images/identify.png'">
    `;
-    
+
     sendIdentification();
 
     videoDiv.style.visibility = 'hidden';

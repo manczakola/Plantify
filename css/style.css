@@ -212,7 +212,8 @@ nav .navbar-toggler:focus {
   font-family: "Economica", sans-serif;
   font-size: 2rem;
   text-align: center;
-  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid grey;
 }
 
 .resultsOfUploadPhoto {
@@ -269,6 +270,11 @@ nav .navbar-toggler:focus {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.videoDiv #video {
+  width: 100vw !important;
+  margin-top: 20vh;
 }
 
 #screenshotButton {
