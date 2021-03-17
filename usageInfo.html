@@ -1,0 +1,101 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@manczakola 
+Plant-id
+/
+Plant-id-API
+2
+2910
+Code
+Issues
+3
+Pull requests
+2
+Actions
+Projects
+Wiki
+Security
+Insights
+Plant-id-API/javascript/sync_identification_example.html
+@Krejdom
+Krejdom Change API key request form link
+Latest commit 253bfb2 on 7 Jul 2020
+ History
+ 1 contributor
+66 lines (57 sloc)  1.63 KB
+  
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<meta charset="UTF-8">
+</head>
+
+<body>
+  <form>
+    <input type="file" multiple />
+    <button type="button">OK</button>
+  </form>
+<script type="text/javascript">
+  
+document.querySelector('button').onclick = function sendIdentification() {
+    const files = [...document.querySelector('input[type=file]').files];
+    const promises = files.map((file) => {
+      return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = (event) => {
+            const res = event.target.result;
+            console.log(res);
+            resolve(res);
+          }
+          reader.readAsDataURL(file)
+      })
+    })
+    
+    Promise.all(promises).then((base64files) => {
+      console.log(base64files)
+            
+      const data = {
+        api_key: "tnxWY2oxbE1wdlFISTeXTfI4tATR0usClS9vs1y1JrK8ynZ69u",
+        images: base64files,
+        modifiers: ["crops_fast", "similar_images"],
+        plant_language: "en",
+        plant_details: ["common_names",
+                          "url",
+                          "name_authority",
+                          "wiki_description",
+                          "taxonomy",
+                          "synonyms"]
+      };
+      
+      fetch('https://api.plant.id/v2/get_identification_result/10498592', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+    })
+  
+};
+
+</script>
+</body>
+
+</html>
+
+
+

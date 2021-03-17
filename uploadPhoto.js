@@ -157,6 +157,7 @@ const sendIdentification = () => {
             }
             getPlantObject(recognizedImage)
             console.log(recognizedImage);
+            createSearchedObject(recognizedImage)
             return recognizedImage
         })
 
@@ -169,21 +170,21 @@ const sendIdentification = () => {
 
 // function displaying search results
 
-const getPlantObject = (obj) => {
+ const getPlantObject = (obj) => {
     document.querySelector('#screenshotButton').style.visibility = 'hidden';
-    
+
     const uploadDiv = document.querySelector('.uploadDiv');
 
     const plantMainDiv = document.createElement('div');
     uploadDiv.appendChild(plantMainDiv);
-    plantMainDiv.classList.add('plantMainDiv');
-    plantMainDiv.classList.add('col-12');
+    plantMainDiv.classList.add('plantMainDiv', 'col-12');
+   
 
 
     const resultsOfUploadPhoto = document.createElement('div');
     uploadDiv.appendChild(resultsOfUploadPhoto);
-    resultsOfUploadPhoto.classList.add('resultsOfUploadPhoto');
-    resultsOfUploadPhoto.classList.add('row');
+    resultsOfUploadPhoto.classList.add('resultsOfUploadPhoto', 'row');
+
 
 
     let probabilities = [];
@@ -191,10 +192,7 @@ const getPlantObject = (obj) => {
 
     for (let i = 0; i < suggestions.length; i++) {
         const resultDiv = document.createElement('div');
-        resultDiv.classList.add('resultDiv')
-        resultDiv.classList.add('col-xs-12');
-        resultDiv.classList.add('col-md-6');
-        resultDiv.classList.add('col-lg-4');
+        resultDiv.classList.add('resultDiv', 'col-xs-12', 'col-md-6', 'col-lg-4')
         resultsOfUploadPhoto.appendChild(resultDiv);
 
         probabilities.push(suggestions[i].probability);
@@ -204,7 +202,7 @@ const getPlantObject = (obj) => {
         <div class='probability'> Probability: ${(suggestions[i].probability*100).toFixed(2)}%</div>
        
 
-        <img src="${suggestions[i].similar_images[0].url_small}" alt="plant"/>
+        <img src="${suggestions[i].similar_images[0].url}" alt="plant"/>
 
         <div class='commonName'>Name: ${suggestions[i].plant_name}</div>
 
@@ -241,10 +239,17 @@ const getPlantObject = (obj) => {
             plantMainDiv.innerHTML = `
     <img src="${obj.images}" alt="plant" class="recognizedPlantImg"/>
     <div class='recognizedPlantName'>The best result: <strong>${el.plant_name}</strong>
-    `
+    `;
+
+
+
         }
 
     })
+
+
+
+
 
 
     // hide buttons and change to results
@@ -271,8 +276,39 @@ const getPlantObject = (obj) => {
     });
 
 
-
 }
+
+const items = JSON.parse(localStorage.getItem('item')) || [];
+const itemsLength = items.length;
+
+const createSearchedObject =
+    (item) => {
+        let searchedObject = new Object();
+        searchedObject = {
+            item,
+            name: document.querySelector('.recognizedPlantName').children[0].textContent,
+            img: item.images
+        }
+
+
+        // create object in local storage
+        localStorage.setItem('item', JSON.stringify(searchedObject));
+        let parsItem = JSON.parse(localStorage.getItem('item'));
+
+        // push object to array
+
+        if (items) {
+            items.push(parsItem);
+        } else {
+            return items;
+        }
+
+        // set array of objects to local storage
+        localStorage.setItem('item', JSON.stringify(items));
+
+    }
+
+
 
 
 document.querySelector('#identify').addEventListener('click', sendIdentification);

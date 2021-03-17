@@ -13,3 +13,11 @@ $gray: #ddd5d5;
 $text: rgb(133, 129, 129);
 $button: #3e3e3f;
 $button-hover: #525253;
+
+
+$grid-breakpoints: (xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px);

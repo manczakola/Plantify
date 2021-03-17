@@ -1,0 +1,45 @@
+.main {
+  font-family: "Economica", sans-serif;
+}
+
+.searchedItems {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: #858181;
+}
+
+.searchedItems .searchedItem {
+  list-style-type: none;
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.24);
+  cursor: pointer;
+  font-size: 1.3rem;
+}
+
+.searchedItems .searched-img {
+  max-width: 100px;
+  margin: 0 1rem;
+}
+
+.searchedItems .id {
+  font-size: .7rem;
+  margin-left: 2rem;
+}
+
+.headerRecentlySearched {
+  padding: 2rem !important;
+  font-size: 3rem;
+}
+/*# sourceMappingURL=searched.css.map */

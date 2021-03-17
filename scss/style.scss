@@ -216,7 +216,7 @@ nav {
 
 .resultsOfUploadPhoto {
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     display: flex;
     padding: 5rem;
     font-family: $font;
@@ -225,7 +225,6 @@ nav {
     img {
         width: 80%;
         padding: 1rem;
-        min-width: 250px;
     }
 
     .resultDiv {
@@ -235,6 +234,7 @@ nav {
         align-items: center;
         display: flex;
         flex-direction: column;
+        max-height: fit-content;
     }
 }
 
@@ -252,20 +252,19 @@ nav {
 
     #video {
         width: 100vw !important;
-        margin-top: 30vh;
+        margin-top: 20vh;
+    }
+
+    #screenshotButton {
+        border: none;
+        background-color: transparent;
+        margin: 2.5rem 0;
+        outline: none;
+        transition: all .2s ease-in-out;
+        cursor: pointer;
+    }
+
+    #screenshot-img {
+        width: 80vw;
     }
 }
-
-#screenshotButton {
-    border: none;
-    background-color: transparent;
-    margin: 2.5rem 0;
-    outline: none;
-    transition: all .2s ease-in-out;
-    cursor: pointer;
-}
-
-#screenshot-img {
-    width: 80vw;
-}
-
