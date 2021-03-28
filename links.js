@@ -1,6 +1,7 @@
 const main = document.querySelector('.main');
 const myAccountLink = document.querySelector('#navbarNav > ul >.myaccount');
 const recentlySearchedLink = document.querySelector('#navbarNav > ul >.recentlySearched');
+const myPlantCollectionLink = document.querySelector('#navbarNav > ul >.myplantcollection');
 const modal = document.querySelector('.modal');
 const modalTitle = document.querySelector('.modal-title');
 const modalBody = document.querySelector('.modal-body');
@@ -104,14 +105,14 @@ recentlySearchedLink.addEventListener('click', () => {
         const li = document.createElement('li');
         li.classList.add('searchedItem')
 
-        li.innerHTML = `<img class='searched-img' src='${element.img}'/> <span class='name'>${element.name}</span><br> <span class='id'>${element.item.id}</span> <button type="button" class="btn btn-primary modalBtn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Launch demo modal
+        li.innerHTML = `<img class='searched-img' src='${element.img}'/> <span class='name'>${element.name}</span> <span class='id'>${element.item.id}</span> <button type="button" class="btn btn-outline-secondary modalBtn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Show more
       </button> `;
         ol.appendChild(li);
 
         li.setAttribute('id', element.item.id);
 
-        // showItem(element.item.id);
+
     });
 
     document.querySelectorAll('.searchedItem').forEach(el => el.addEventListener('click', (e) => {
@@ -120,9 +121,7 @@ recentlySearchedLink.addEventListener('click', () => {
         let item = JSON.parse(window.localStorage.getItem('item'));
         let arrayOfItems = [];
 
-        for (i = 0; i < item.length; i++) {
 
-        }
         const data = {
             api_key: "tnxWY2oxbE1wdlFISTeXTfI4tATR0usClS9vs1y1JrK8ynZ69u",
 
@@ -180,7 +179,7 @@ const showIdElement = (obj, arr) => {
     for (let i = 0; i < suggestions.length; i++) {
         console.log(suggestions.length);
         const resultDiv = document.createElement('div');
-        resultDiv.classList.add('resultDiv', 'col-xs-12', 'col-md-6', 'col-lg-4')
+        resultDiv.classList.add('resultDiv', 'col-xs-12')
         resultsOfUploadPhoto.appendChild(resultDiv);
 
 
@@ -188,7 +187,7 @@ const showIdElement = (obj, arr) => {
       <div class='probability'> Probability: ${(suggestions[i].probability*100).toFixed(2)}%</div>
      
 
-      <img src="${suggestions[i].similar_images[0].url_small}" alt="plant"/>
+      <img src="${suggestions[i].similar_images[0].url}" alt="plant"/>
 
       <div class='commonName'>Name: ${suggestions[i].plant_name}</div>
 
@@ -202,3 +201,74 @@ const showIdElement = (obj, arr) => {
     <div class='recognizedPlantName'>The best result: <strong>${suggestions[0].plant_name}</strong>
     `;
 }
+
+
+
+
+myPlantCollectionLink.addEventListener('click', () => {
+    main.innerHTML = '';
+
+    const header = document.createElement('span');
+    header.innerText = 'My plant collection';
+    header.classList.add('headerRecentlySearched')
+
+    const ol = document.createElement('ol');
+
+    ol.classList.add('searchedItems')
+    main.appendChild(header);
+    main.appendChild(ol);
+
+    console.log(itemsOfCollection);
+    itemsOfCollection.forEach(element => {
+        const li = document.createElement('li');
+        li.classList.add('searchedItem')
+
+        li.innerHTML = `<img class='searched-img' src='${element.img}'/> <span class='name'>${element.name}</span> <span class='id'>${element.item.id}</span> <button type="button" class="btn btn-outline-secondary modalBtn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Show more
+      </button> `;
+        ol.appendChild(li);
+
+        li.setAttribute('id', element.item.id);
+
+
+    });
+
+    document.querySelectorAll('.searchedItem').forEach(el => el.addEventListener('click', (e) => {
+
+        let thisIdElement = e.currentTarget.id;
+        let item = JSON.parse(window.localStorage.getItem('collection'));
+        let arrayOfItems = [];
+
+
+        const data = {
+            api_key: "tnxWY2oxbE1wdlFISTeXTfI4tATR0usClS9vs1y1JrK8ynZ69u",
+
+            Headers: {
+                CORS: 'no-cors'
+            }
+        };
+
+        fetch(` https://api.plant.id/v2/get_identification_result/${thisIdElement}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+
+                showIdElement(data, arrayOfItems)
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+
+
+        ;
+
+
+    }))
+
+});

@@ -1,7 +1,9 @@
-const changeLogo = () => {
-    const logoBig = document.querySelector('.logoBig');
+const logoBig = document.querySelector('.logoBig');
 
-    if (window.innerWidth > 992) {
+
+const changeLogo = () => {
+
+    if (logoBig != 'null' && window.innerWidth > 992) {
 
         logoBig.innerHTML = `   <img src="images/logoBig.png" onerror="this.onerror=null; this.src='images/logoBig.png'">`;
     } else {

@@ -170,7 +170,7 @@ const sendIdentification = () => {
 
 // function displaying search results
 
- const getPlantObject = (obj) => {
+const getPlantObject = (obj) => {
     document.querySelector('#screenshotButton').style.visibility = 'hidden';
 
     const uploadDiv = document.querySelector('.uploadDiv');
@@ -178,8 +178,6 @@ const sendIdentification = () => {
     const plantMainDiv = document.createElement('div');
     uploadDiv.appendChild(plantMainDiv);
     plantMainDiv.classList.add('plantMainDiv', 'col-12');
-   
-
 
     const resultsOfUploadPhoto = document.createElement('div');
     uploadDiv.appendChild(resultsOfUploadPhoto);
@@ -239,16 +237,17 @@ const sendIdentification = () => {
             plantMainDiv.innerHTML = `
     <img src="${obj.images}" alt="plant" class="recognizedPlantImg"/>
     <div class='recognizedPlantName'>The best result: <strong>${el.plant_name}</strong>
+    <i class="far fa-heart"></i>
     `;
-
-
-
         }
+
 
     })
 
 
+    const addToCollectionBtn = document.querySelector('.fa-heart');
 
+    addToCollectionBtn.addEventListener('click', addToCollection)
 
 
 
@@ -281,32 +280,33 @@ const sendIdentification = () => {
 const items = JSON.parse(localStorage.getItem('item')) || [];
 const itemsLength = items.length;
 
-const createSearchedObject =
-    (item) => {
-        let searchedObject = new Object();
-        searchedObject = {
-            item,
-            name: document.querySelector('.recognizedPlantName').children[0].textContent,
-            img: item.images
-        }
-
-
-        // create object in local storage
-        localStorage.setItem('item', JSON.stringify(searchedObject));
-        let parsItem = JSON.parse(localStorage.getItem('item'));
-
-        // push object to array
-
-        if (items) {
-            items.push(parsItem);
-        } else {
-            return items;
-        }
-
-        // set array of objects to local storage
-        localStorage.setItem('item', JSON.stringify(items));
-
+const createSearchedObject = (item) => {
+    let searchedObject = new Object();
+    searchedObject = {
+        item,
+        name: document.querySelector('.recognizedPlantName').children[0].textContent,
+        img: item.images
     }
+
+
+    // create object in local storage
+    localStorage.setItem('item', JSON.stringify(searchedObject));
+    let parsItem = JSON.parse(localStorage.getItem('item'));
+
+    // push object to array
+
+    if (items) {
+        items.push(parsItem);
+    } else {
+        return items;
+    }
+
+    // set array of objects to local storage
+    localStorage.setItem('item', JSON.stringify(items));
+
+
+    showItem(item)
+}
 
 
 

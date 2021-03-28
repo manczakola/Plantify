@@ -216,6 +216,16 @@ nav .navbar-toggler:focus {
   border-bottom: 1px solid grey;
 }
 
+.fa-heart {
+  padding-left: 2rem;
+  color: #858181;
+  cursor: pointer;
+}
+
+.fa-heart:hover {
+  color: #e93e63;
+}
+
 .resultsOfUploadPhoto {
   -webkit-box-pack: center;
       -ms-flex-pack: center;

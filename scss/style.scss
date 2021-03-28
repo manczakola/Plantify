@@ -214,6 +214,17 @@ nav {
     border-bottom: 1px solid grey;
 }
 
+
+.fa-heart {
+    padding-left: 2rem;
+    color: $text;
+    cursor: pointer;
+
+    &:hover {
+        color: rgb(233, 62, 99);
+    }
+}
+
 .resultsOfUploadPhoto {
     justify-content: center;
     align-items: flex-start;
