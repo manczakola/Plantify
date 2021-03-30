@@ -241,6 +241,12 @@ nav .navbar-toggler:focus {
   font-size: 1.2rem;
 }
 
+@media (max-width: 576px) {
+  .resultsOfUploadPhoto {
+    padding: .5rem;
+  }
+}
+
 .resultsOfUploadPhoto img {
   width: 80%;
   padding: 1rem;
@@ -264,6 +270,8 @@ nav .navbar-toggler:focus {
   max-height: -webkit-fit-content;
   max-height: -moz-fit-content;
   max-height: fit-content;
+  text-align: center;
+  border-bottom: 1px solid #cfcece;
 }
 
 .videoDiv {

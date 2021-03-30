@@ -233,6 +233,11 @@ nav {
     font-family: $font;
     font-size: 1.2rem;
 
+
+    @media (max-width: $sm-breakpoint) {
+        padding: .5rem;
+    }
+
     img {
         width: 80%;
         padding: 1rem;
@@ -246,6 +251,8 @@ nav {
         display: flex;
         flex-direction: column;
         max-height: fit-content;
+        text-align: center;
+        border-bottom: 1px solid $lightergray;
     }
 }
 

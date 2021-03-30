@@ -14,10 +14,9 @@ $text: rgb(133, 129, 129);
 $button: #3e3e3f;
 $button-hover: #525253;
 
-
-$grid-breakpoints: (xs: 0,
-    sm: 576px,
-    md: 768px,
-    lg: 992px,
-    xl: 1200px,
-    xxl: 1400px);
+$xs-breakpoint: 0;
+$sm-breakpoint: 576px;
+$md-breakpoint: 768px;
+$lg-breakpoint: 992px;
+$xl-breakpoint: 1200px;
+$xx-breakpointl: 1400px;
