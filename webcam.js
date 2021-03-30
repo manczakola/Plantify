@@ -7,7 +7,6 @@ document.querySelector('#buttonTakePhoto').addEventListener('click', () => {
 
     //add constraints object
     var constraints = {
-        audio: true,
         video: true
     };
 
