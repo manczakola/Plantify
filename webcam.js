@@ -4,13 +4,21 @@ const canvasElement = document.getElementById('canvas');
 const webcam = new Webcam(webcamElement, 'environment', canvasElement);
 
 document.querySelector('#buttonTakePhoto').addEventListener('click', () => {
-    webcam.start()
-        .then(result => {
-            console.log("webcam started");
-        })
-        .catch(err => {
-            console.log(err);
-        });
+
+    //add constraints object
+    var constraints = {
+        audio: true,
+        video: true
+    };
+
+    navigator.mediaDevices.getUserMedia(constraints).then(function (mediaStream) {
+        var video = document.querySelector('video');
+        video.srcObject = mediaStream;
+        video.play();
+    }).catch(function (err) {
+        console.log("Error!" + err.message);
+    });
+
 })
 
 $('#cameraFlip').click(function () {
