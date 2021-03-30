@@ -29,7 +29,6 @@
         // set array of objects to local storage
         localStorage.setItem('collection', JSON.stringify(itemsOfCollection));
 
-
     }
 
     const showItem = (item) => {
@@ -40,4 +39,15 @@
         console.log(arrayOfCollection);
 
 
+    }
+
+
+
+    const removeOnBtn = (e) => {
+        console.log('ok');
+        console.log(itemsOfCollection, arrayOfCollection);
+
+        e.target.parentNode.remove(); // remove li item
+        itemsOfCollection.pop(e.target.parentNode) //remove item from items array
+        localStorage.setItem('collection', JSON.stringify(itemsOfCollection)); // update localStorage
     }

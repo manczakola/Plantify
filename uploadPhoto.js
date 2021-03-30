@@ -277,7 +277,7 @@ const getPlantObject = (obj) => {
 
 }
 
-const items = JSON.parse(localStorage.getItem('item')) || [];
+const items = JSON.parse(localStorage.getItem('searched')) || [];
 const itemsLength = items.length;
 
 const createSearchedObject = (item) => {
@@ -290,8 +290,8 @@ const createSearchedObject = (item) => {
 
 
     // create object in local storage
-    localStorage.setItem('item', JSON.stringify(searchedObject));
-    let parsItem = JSON.parse(localStorage.getItem('item'));
+    localStorage.setItem('searched', JSON.stringify(searchedObject));
+    let parsItem = JSON.parse(localStorage.getItem('searched'));
 
     // push object to array
 
@@ -302,7 +302,7 @@ const createSearchedObject = (item) => {
     }
 
     // set array of objects to local storage
-    localStorage.setItem('item', JSON.stringify(items));
+    localStorage.setItem('searched', JSON.stringify(items));
 
 
     showItem(item)

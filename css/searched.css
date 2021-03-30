@@ -59,7 +59,7 @@
 @media (max-width: 360px) {
   .headerRecentlySearched {
     padding: 0;
-    font-size: 2.3rem;
+    font-size: 2rem;
   }
 }
 
@@ -67,5 +67,19 @@
   display: -webkit-box !important;
   display: -ms-flexbox !important;
   display: flex !important;
+}
+
+.cancelItem {
+  font-family: "Font Awesome 5 Free";
+  color: #525253;
+}
+
+.cancelItem:before {
+  content: "\f2ed";
+}
+
+.cancelItem:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 /*# sourceMappingURL=searched.css.map */

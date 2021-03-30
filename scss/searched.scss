@@ -46,10 +46,26 @@
 
     @media (max-width:360px) {
         padding: 0;
-        font-size: 2.3rem;
+        font-size: 2rem;
     }
 }
 
 .modalBtn {
     display: flex !important;
+}
+
+
+
+.cancelItem {
+
+    font-family: "Font Awesome 5 Free";
+    color: $button-hover;
+
+    &:before {
+        content: "\f2ed";
+    }
+
+    &:hover {
+        transform: scale(1.2);
+    }
 }

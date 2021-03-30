@@ -118,7 +118,7 @@ recentlySearchedLink.addEventListener('click', () => {
     document.querySelectorAll('.searchedItem').forEach(el => el.addEventListener('click', (e) => {
 
         let thisIdElement = e.currentTarget.id;
-        let item = JSON.parse(window.localStorage.getItem('item'));
+        let item = JSON.parse(window.localStorage.getItem('searched'));
         let arrayOfItems = [];
 
 
@@ -139,7 +139,7 @@ recentlySearchedLink.addEventListener('click', () => {
             })
             .then(response => response.json())
             .then(data => {
-                console.log('Success:', data);
+                // console.log('Success:', data);
 
                 showIdElement(data, arrayOfItems)
             })
@@ -157,7 +157,7 @@ recentlySearchedLink.addEventListener('click', () => {
 
 
 const showIdElement = (obj, arr) => {
-    console.log(obj, arr);
+    // console.log(obj, arr);
 
 
     modalTitle.innerText = `${obj.suggestions[0].plant_name}`;
@@ -177,7 +177,7 @@ const showIdElement = (obj, arr) => {
 
 
     for (let i = 0; i < suggestions.length; i++) {
-        console.log(suggestions.length);
+        // console.log(suggestions.length);
         const resultDiv = document.createElement('div');
         resultDiv.classList.add('resultDiv', 'col-xs-12')
         resultsOfUploadPhoto.appendChild(resultDiv);
@@ -218,14 +218,14 @@ myPlantCollectionLink.addEventListener('click', () => {
     main.appendChild(header);
     main.appendChild(ol);
 
-    console.log(itemsOfCollection);
+    // console.log(itemsOfCollection);
     itemsOfCollection.forEach(element => {
         const li = document.createElement('li');
         li.classList.add('searchedItem')
 
         li.innerHTML = `<img class='searched-img' src='${element.img}'/> <span class='name'>${element.name}</span> <span class='id'>${element.item.id}</span> <button type="button" class="btn btn-outline-secondary modalBtn" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Show more
-      </button> `;
+      </button> <span class='cancelItem btn btn-outline'></span> `;
         ol.appendChild(li);
 
         li.setAttribute('id', element.item.id);
@@ -233,9 +233,10 @@ myPlantCollectionLink.addEventListener('click', () => {
 
     });
 
-    document.querySelectorAll('.searchedItem').forEach(el => el.addEventListener('click', (e) => {
+    document.querySelectorAll('.modalBtn').forEach(el => el.addEventListener('click', (e) => {
 
-        let thisIdElement = e.currentTarget.id;
+        let thisIdElement = e.currentTarget.parentNode.id;
+
         let item = JSON.parse(window.localStorage.getItem('collection'));
         let arrayOfItems = [];
 
@@ -257,7 +258,7 @@ myPlantCollectionLink.addEventListener('click', () => {
             })
             .then(response => response.json())
             .then(data => {
-                console.log('Success:', data);
+                // console.log('Success:', data);
 
                 showIdElement(data, arrayOfItems)
             })
@@ -270,5 +271,11 @@ myPlantCollectionLink.addEventListener('click', () => {
 
 
     }))
+
+
+
+
+    const cancelItem = document.querySelectorAll('.cancelItem');
+    cancelItem.forEach(btn => btn.addEventListener('click', removeOnBtn));
 
 });
