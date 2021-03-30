@@ -15,6 +15,9 @@ document.querySelector('#buttonTakePhoto').addEventListener('click', () => {
         var video = document.querySelector('video');
         video.srcObject = mediaStream;
         video.play();
+
+
+
     }).catch(function (err) {
         console.log("Error!" + err.message);
     });

@@ -310,4 +310,8 @@ nav .navbar-toggler:focus {
 .videoDiv #screenshot-img {
   width: 80vw;
 }
+
+.videoDiv #cameraFlip {
+  padding-top: 1rem;
+}
 /*# sourceMappingURL=style.css.map */

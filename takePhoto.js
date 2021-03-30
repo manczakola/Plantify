@@ -12,34 +12,33 @@ const canvas = document.createElement("canvas");
 document.querySelector('.takePhotoDiv').addEventListener('click', () => {
     console.log(video);
 
-    videoDiv.style.visibility === 'hidden' ? videoDiv.style.visibility = 'visible' : startVideo();
-    screenshotButton.style.visibility = 'visible';
-
-    function startVideo() {
-
-        navigator.mediaDevices.getUserMedia({
-            video: true
-        }).then(
-            stream => (video.srcObject = stream),
-            err => console.log(err)
-        );
-
+    if (videoDiv.style.visibility === 'hidden') {
+        videoDiv.style.visibility = 'visible';
         form.style.height = '0';
         form.style.visibility = 'hidden';
     }
 
+    screenshotButton.style.visibility = 'visible';
 
-    startVideo();
+
+
+
 })
+
+screenshotButton.addEventListener('click', stopVideo())
 
 
 //Take screenshots
 
 screenshotButton.addEventListener('click', () => {
+
+    stopVideo();
+
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
     canvas.getContext("2d").drawImage(video, 0, 0);
     img.src = canvas.toDataURL("image/jpeg");
+
 
     video.style.visibility = 'hidden';
     video.style.height = '0';
@@ -53,3 +52,15 @@ screenshotButton.addEventListener('click', () => {
 
 
 });
+
+
+function stopVideo() {
+
+    this.video.pause();
+    this.video.src = "";
+    this.video.srcObject = null;
+
+    if (this.localStream)
+        this.localStream.getTracks().forEach(track => track.stop());
+
+}
