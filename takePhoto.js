@@ -1,7 +1,7 @@
 const form = document.querySelector('.form');
 const screenshotButton = document.querySelector("#screenshotButton");
 const img = document.querySelector("#screenshot-img");
-const video = document.querySelector("#video");
+const video = document.querySelector("#webcam");
 const videoDiv = document.querySelector(".videoDiv");
 
 const canvas = document.createElement("canvas");
@@ -25,19 +25,23 @@ document.querySelector('.takePhotoDiv').addEventListener('click', () => {
 
 })
 
-screenshotButton.addEventListener('click', stopVideo())
+
 
 
 //Take screenshots
 
 screenshotButton.addEventListener('click', () => {
 
-    stopVideo();
+
 
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
     canvas.getContext("2d").drawImage(video, 0, 0);
-    img.src = canvas.toDataURL("image/jpeg");
+    const dataUrl = canvas.toDataURL("image/jpeg");
+
+    localStorage.setItem('photo', dataUrl);
+
+
 
 
     video.style.visibility = 'hidden';
@@ -46,21 +50,24 @@ screenshotButton.addEventListener('click', () => {
     <img src="images/identify.svg" onerror="this.onerror=null; this.src='images/identify.png'">
    `;
 
-    sendIdentification();
 
     videoDiv.style.visibility = 'hidden';
 
 
+    // setTimeout(() => {
+    //     stopVideo();
+    // }, 1000);
+
 });
 
 
-function stopVideo() {
+// function stopVideo() {
+//     if (this.localStream)
+//         this.localStream.getTracks().forEach(track => track.stop());
+//     this.video.srcObject = null;
 
-    this.video.pause();
-    this.video.src = "";
-    this.video.srcObject = null;
 
-    if (this.localStream)
-        this.localStream.getTracks().forEach(track => track.stop());
 
-}
+
+
+// }

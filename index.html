@@ -16,6 +16,7 @@
     <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script> <!--webcam-easy -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> <!--jQuery -->
     <title>Plantify</title>
+
 </head>
 
 <body>
@@ -123,15 +124,29 @@
     </div>
     
     
-     <div class="videoDiv"style='visibility:hidden' >
-       
+     <div class="videoDiv"style='visibility:hidden'>
+<!--        
     <video  id="video" autoplay playsinline  class="video"  style="transform: scaleX(1); position: static;"></video>
     <div id="cameraFlip"><img src="images/rotateCamera.svg" onerror="this.onerror=null; this.src='images/rotateCamera.png'">
      </div>
     <img id="screenshot-img" src="">
       <button id="screenshotButton" type="button"  class="screenshotButton">
         <img src="images/takeScreenshot.svg" onerror="this.onerror=null; this.src='images/takeScreenshot.png'">
+      </button> -->
+
+
+
+      <video id="webcam" class="video" autoplay playsinline width="640" height="480"></video>
+      <div id="cameraFlip"><img src="images/rotateCamera.svg" onerror="this.onerror=null; this.src='images/rotateCamera.png'">
+      </div>
+      <button id="screenshotButton" type="button"  class="screenshotButton">
+        <img src="images/takeScreenshot.svg" onerror="this.onerror=null; this.src='images/takeScreenshot.png'">
       </button>
+  
+  <canvas id="canvas" class="d-none"></canvas>
+  <div id="download-photo"></div>
+
+
 </div>
 
 
@@ -144,6 +159,8 @@
 <script src='webcam.js' ></script>
 <script src='addToCollection.js' ></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 
 </body>
 
