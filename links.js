@@ -218,17 +218,27 @@ myPlantCollectionLink.addEventListener('click', () => {
     main.appendChild(header);
     main.appendChild(ol);
 
-    // console.log(itemsOfCollection);
+    console.log(itemsOfCollection);
     itemsOfCollection.forEach(element => {
         const li = document.createElement('li');
-        li.classList.add('searchedItem')
+        li.classList.add('searchedItem');
 
-        li.innerHTML = `<img class='searched-img' src='${element.img}'/> <span class='name'>${element.name}</span> <span class='id'>${element.item.id}</span> <button type="button" class="btn btn-outline-secondary modalBtn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        console.log(element, element.item);
+        const elementItemId = () => {
+            if (!element.item) {
+                return ''
+            } else {
+                return element.item.id;
+            }
+        }
+        console.log(elementItemId());
+
+        li.innerHTML = `<img class='searched-img' src='${element.img}'/> <span class='name'>${element.name}</span> <span class='id'>${elementItemId()}</span> <button type="button" class="btn btn-outline-secondary modalBtn" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Show more
       </button> <span class='cancelItem btn btn-outline'></span> `;
         ol.appendChild(li);
 
-        li.setAttribute('id', element.item.id);
+        li.setAttribute('id', elementItemId());
 
 
     });

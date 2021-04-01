@@ -54,20 +54,4 @@ screenshotButton.addEventListener('click', () => {
     videoDiv.style.visibility = 'hidden';
 
 
-    // setTimeout(() => {
-    //     stopVideo();
-    // }, 1000);
-
 });
-
-
-// function stopVideo() {
-//     if (this.localStream)
-//         this.localStream.getTracks().forEach(track => track.stop());
-//     this.video.srcObject = null;
-
-
-
-
-
-// }
