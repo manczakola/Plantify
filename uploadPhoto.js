@@ -169,6 +169,83 @@ function handleFiles() {
 
 
 
+const sendIdentificationFromPhoto = (image) => {
+
+    console.log(typeof image);
+
+    const data = {
+        api_key: "tnxWY2oxbE1wdlFISTeXTfI4tATR0usClS9vs1y1JrK8ynZ69u",
+        images: image,
+        modifiers: ["crops_fast", "similar_images"],
+        plant_language: "en",
+        plant_details: ["common_names",
+            "url",
+            "name_authority",
+            "wiki_description",
+            "taxonomy",
+            "synonyms"
+        ]
+    };
+
+    fetch('https://api.plant.id/v2/identify', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+        .then(response => response.json())
+        .then(data => {
+
+            console.log(data);
+
+            //create object with recognized plant
+
+            recognizedImage = {
+                id: data.id,
+                images: data.images[0].url,
+                imageName: data.images[0].file_name,
+                isPlant: data.is_plant_probability,
+                dateUpload: data.meta_data.date,
+                suggestions: data.suggestions,
+                plants: data.suggestions.forEach(el => {
+                    let plant = new Object();
+                    plant = {
+                        id: el.id,
+                        namePlant: el.plant_name,
+                        propability: el.probability,
+                        details: el.plant_details,
+                        commonName: el.plant_details.common_names,
+                        synonyms: el.plant_details.synonyms,
+                        taxonomy: el.plant_details.taxonomy,
+                        plantURL: el.plant_details.url,
+                        wikipedia: el.plant_details.wiki_description,
+                        similarImages: el.similar_images
+                    }
+                }),
+
+
+
+
+
+
+
+            }
+
+
+            getPlantObject(recognizedImage)
+
+            return recognizedImage
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+
+}
+
+
+
+
 
 // function displaying search results
 
