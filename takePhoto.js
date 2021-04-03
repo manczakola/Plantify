@@ -3,7 +3,6 @@ const screenshotButton = document.querySelector("#screenshotButton");
 const img = document.querySelector("#screenshot-img");
 const video = document.querySelector("#webcam");
 const videoDiv = document.querySelector(".videoDiv");
-
 const canvas = document.createElement("canvas");
 
 
@@ -20,9 +19,6 @@ document.querySelector('.takePhotoDiv').addEventListener('click', () => {
 
     screenshotButton.style.visibility = 'visible';
 
-
-
-
 })
 
 
@@ -32,8 +28,6 @@ document.querySelector('.takePhotoDiv').addEventListener('click', () => {
 
 screenshotButton.addEventListener('click', () => {
 
-
-
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
     canvas.getContext("2d").drawImage(video, 0, 0);
@@ -42,14 +36,11 @@ screenshotButton.addEventListener('click', () => {
     localStorage.setItem('photo', dataUrl);
 
 
-
-
     video.style.visibility = 'hidden';
     video.style.height = '0';
-    screenshotButton.innerHTML = `
-    <img src="images/identify.svg" onerror="this.onerror=null; this.src='images/identify.png'">
-   `;
 
+
+    screenshotButton.style.visibility = 'hidden';
 
     videoDiv.style.visibility = 'hidden';
 

@@ -80,7 +80,7 @@ $('#screenshotButton').click(function () {
             console.log(file);
         })
     })
-
+ goSpinner();
     Promise.all(promises).then((base64files) => {
         console.log(base64files)
 
@@ -108,6 +108,7 @@ $('#screenshotButton').click(function () {
             .then(response => response.json())
             .then(data => {
 
+               
                 //create object with recognized plant
 
                 recognizedImage = {
@@ -138,7 +139,9 @@ $('#screenshotButton').click(function () {
 
                 getPlantObject(recognizedImage)
                 console.log(recognizedImage);
-                createSearchedObject(recognizedImage)
+                createSearchedObject(recognizedImage);
+
+
                 return recognizedImage
             })
             .catch((error) => {
@@ -146,3 +149,4 @@ $('#screenshotButton').click(function () {
             });
     })
 });
+
