@@ -1,7 +1,9 @@
 const webcamElement = document.getElementById('webcam');
 const canvasElement = document.getElementById('canvas');
 
-const webcam = new Webcam(webcamElement, 'element', canvasElement);
+const webcam = new Webcam(webcamElement, 'enviroment', canvasElement);
+
+
 document.querySelector("#buttonTakePhoto").addEventListener('click', () => {
 
     webcam.start()
@@ -17,7 +19,7 @@ document.querySelector("#buttonTakePhoto").addEventListener('click', () => {
 
 
 $('#cameraFlip').click(function () {
-    webcam.flip();
+//     webcam.flip();
     webcam.start();
 });
 
